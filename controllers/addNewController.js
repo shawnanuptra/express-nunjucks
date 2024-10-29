@@ -23,7 +23,7 @@ export function checkAddNewQuestion(req, res, next) {
 	questions = questions.map((question, i) => ({ q: question, a: answers[i] }));
 
 	// append to res.local to be passed to renderFormpage
-	res.local = { ...res.local, questions, name };
+	res.locals = { ...res.locals, questions, name };
 
 	next();
 }
