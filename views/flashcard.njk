@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{{ name }}</title>
+		<link rel="stylesheet" href="../globals.css"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<h1 class="title" id="title">{{ name }}</h1>
+		<div class="questions" id="questions">
+
+			{% for question in questions %}
+				<div class="flashcard">
+					<p>{{question.q}}</p>
+					<p>{{question.a}}</p>
+				</div>
+			{% endfor %}
+		</div>
+		<a class="start-game-button" id="start-game" href="start/?slug={{flashcard.slug}}">Start Game</a>
+	</body>
+</html>

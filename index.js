@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import homeRouter from "./routes/homeRouter.js";
 import addNewRouter from "./routes/addNewRouter.js";
+import flashcardRouter from "./routes/flashcardRouter.js";
 import nunjucks from "nunjucks";
 
 const PORT = 1234;
@@ -21,6 +22,7 @@ app.use(express.urlencoded());
 // routes
 app.use("/", homeRouter);
 app.use("/add-new", addNewRouter);
+app.use("/flashcard", flashcardRouter);
 
 // flashcards are stored in the app.locals
 app.locals.flashcards = [
