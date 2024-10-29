@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import homeRouter from "./routes/homeRouter.js";
+import addNewRouter from "./routes/addNewRouter.js";
 import nunjucks from "nunjucks";
 
 const PORT = 1234;
@@ -19,6 +20,25 @@ app.use(express.urlencoded());
 
 // routes
 app.use("/", homeRouter);
+app.use("/add-new", addNewRouter);
+
+// flashcards are stored in the app.locals
+app.locals.flashcards = [
+	{
+		name: "First One",
+		slug: "first-one",
+		questions: [
+			{
+				q: "q1",
+				a: "a1",
+			},
+			{
+				q: "q2",
+				a: "a2",
+			},
+		],
+	},
+];
 
 // config view engine
 nunjucks.configure("views", {
