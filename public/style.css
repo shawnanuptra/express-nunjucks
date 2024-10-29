@@ -1,0 +1,54 @@
+.add-new-button {
+	/* alignment */
+	padding: 1rem 1.5rem;
+	border: 0.125rem solid black;
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* text style */
+	text-decoration: none;
+	color: black;
+	background-color: white;
+
+	/* animation */
+	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+}
+
+.add-new-button:hover {
+	box-shadow: 0.25rem 0.25rem;
+	transform: translate(-0.125rem, -0.125rem);
+}
+
+.flashcards {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	width: 100%;
+	max-width: 30rem;
+}
+
+.flashcard {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 1.5rem;
+	border: 0.125rem solid black;
+	border-radius: 0.5rem;
+
+	/* text style */
+	background-color: rgb(255, 192, 75);
+	text-decoration: none;
+	color: black;
+	font-size: 1.5rem;
+
+	/* animation */
+	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+}
+
+.flashcard:hover {
+	box-shadow: 0.25rem 0.25rem;
+	transform: translate(-0.125rem, -0.125rem);
+}

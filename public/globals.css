@@ -1,3 +1,16 @@
-#test {
-	color: red;
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
+	align-items: center;
+	font-family: sans-serif;
+	background-color: aquamarine;
+	gap: 2rem;
+}
+
+.title {
+	font-size: 3rem;
+	margin-bottom: 0;
 }

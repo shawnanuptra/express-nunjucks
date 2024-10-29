@@ -3,12 +3,12 @@
 	"version": "1.0.0",
 	"description": "spike using nunjucks and express",
 	"type": "module",
-	"main": "index.mjs",
+	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon index.mjs"
+		"start": "nodemon  -e '*'"
 	},
-	"author": "",
+	"author": "shawnanuptra",
 	"license": "ISC",
 	"dependencies": {
 		"cors": "^2.8.5",

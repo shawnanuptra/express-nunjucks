@@ -3,11 +3,17 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Flashcards</title>
 		<link rel="stylesheet" href="globals.css" />
 		<link rel="stylesheet" href="style.css" />
-		<title>Flashcards</title>
 	</head>
 	<body>
-		<div id="test">{{ foo }}</div>
+		<h1 class="title">Flash Cards</h1>
+		<a class="add-new-button" href="/add-new">Add New</a>
+		<div class="flashcards">
+			{% for flashcard in flashcards %}
+			<a href="/flashcard/?slug={{ flashcard.slug }} " class="flashcard">{{ flashcard.name }}</a>
+				{% endfor %}
+		</div>
 	</body>
 </html>
