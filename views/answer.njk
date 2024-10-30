@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Answer</title>
+		<link rel="stylesheet" href="../../globals.css"/>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+		<h1 class="title">Your answer is..</h1>
+		<div class="game-area" id="game-area">
+			<form class="question-form" id="question-form" method="post">
+				{% if correct %}
+					<h2>Correct!</h2>
+				{% else %}
+					<h2>Wrong!</h2>
+					<p>You answered: {{userAnswer}}</p>
+					<p>Correct answer: {{correctAnswer}}</p>
+				{% endif %}
+				{% if finished %}
+					<strong>You scored {{correctAnswersCount}}/{{totalQuestions}}</strong>
+					<a href="/">Finish game</a>
+				{% else %}
+					<a href="/flashcard/start/?slug={{slug}}">Continue</a>
+					<a href="/">Back to Main Menu</a>
+				{% endif %}
+			</form>
+		</div>
+	</body>
+</html>

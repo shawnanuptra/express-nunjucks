@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Game</title>
+		<link rel="stylesheet" href="../../globals.css"/>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+		<h1 class="title">Start Game</h1>
+		<div class="game-area" id="game-area">
+			<form class="question-form" id="question-form" method="post">
+				<h2>Question</h2>
+				<p id="question">
+					{{question}}
+				</p>
+
+				<h2>Answer</h2>
+				<input required type="text" name="answer" id="answer"/>
+				<button type="submit">Submit Answer</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -24,7 +24,7 @@ app.use("/", homeRouter);
 app.use("/add-new", addNewRouter);
 app.use("/flashcard", flashcardRouter);
 
-// flashcards are stored in the app.locals
+// store state in app.locals
 app.locals.flashcards = [
 	{
 		name: "First One",
@@ -41,6 +41,8 @@ app.locals.flashcards = [
 		],
 	},
 ];
+app.locals.questionIndex = 0;
+app.locals.correctAnswersCount = 0;
 
 // config view engine
 nunjucks.configure("views", {
