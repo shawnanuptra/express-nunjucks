@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
 		questions: flashcard.questions,
 	});
 });
+
 router.get("/start", (req, res) => {
 	const flashcard = req.app.locals.flashcards.find(
 		(flashcard) => flashcard.slug === req.query.slug,
