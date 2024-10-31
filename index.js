@@ -24,6 +24,10 @@ app.use("/", homeRouter);
 app.use("/add-new", addNewRouter);
 app.use("/flashcard", flashcardRouter);
 
+// todo: styling could just be one big style
+// todo: write readme; remove functionalities; add to template;
+// todo: add flashcard service (put in servcie filea)
+// addAnswer(); checkAnswer(); and these will all be defined by ME not students!! so they can just call the functions
 // store state in app.locals
 app.locals.flashcards = [
 	{
