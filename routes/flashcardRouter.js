@@ -1,76 +1,64 @@
 import express from "express";
 const router = express.Router();
 
-// gets
+// show flashcard information
 router.get("/", (req, res) => {
-	const flashcard = req.app.locals.flashcards.find(
-		(flashcard) => flashcard.slug === req.query.slug,
-	);
-	res.render("flashcard.njk", {
-		name: flashcard.name,
-		slug: flashcard.slug,
-		questions: flashcard.questions,
-	});
+	// todo: find flashcard from the app's flashcards with the same 'slug' as the url param
+	// hint: you can get url param by req.query.x, where x = name of the url query param
+	// todo: add all the information needed to render "flashcard.njk"
+	res.render("flashcard.njk", {});
 });
 
+// start game
 router.get("/start", (req, res) => {
-	const flashcard = req.app.locals.flashcards.find(
-		(flashcard) => flashcard.slug === req.query.slug,
-	);
+	// todo: find flashcard from the app's flashcards with the same 'slug' as the url param
 
-	const questionIndex = res.app.locals.questionIndex ?? 0;
+	// todo: get current questionIndex from app's locals
 
-	res.render("start.njk", { question: flashcard.questions[questionIndex].q });
+	// todo: render the question based on the questionIndex
+	// hint: check the structure of the flashcard object from the app's locals state in index.js
+	res.render("start.njk", { question: "todo: replace me with the actual question!" });
 });
 
-// post
+// check user guess
+// check user guess
 router.post("/start", (req, res) => {
-	const userAnswer = req.body.answer;
-	const flashcard = req.app.locals.flashcards.find(
-		(flashcard) => flashcard.slug === req.query.slug,
-	);
+	// todo: get the answer of the user input
+	// todo: get the answer of the current question using the app's questionIndex
 
-	const totalQuestions = flashcard.questions.length;
-	const questionIndex = res.app.locals.questionIndex ?? 0;
-	const answer = flashcard.questions[questionIndex].a;
+	// todo: increment the questionIndex
 
-	res.app.locals.questionIndex = questionIndex + 1;
+	// todo: check if game is finished
+	// hint: it uses the app's questionIndex and comparing it with how many questions does a flashcard have
 
-	const finished = res.app.locals.questionIndex >= totalQuestions;
-
-	// check answer
+	// check if answer is correct
 	if (answer === userAnswer) {
-		req.app.locals.correctAnswersCount++;
-		const correctAnswersCount = req.app.locals.correctAnswersCount;
-		// show correct state
+		// todo: increment the app's correctAnswersCount
+
+		// todo: render "answer.njk", with all the correct properties
 		res.render("answer.njk", {
-			slug: flashcard.slug,
-			correctAnswer: answer,
-			userAnswer,
-			correct: true,
-			finished,
-			totalQuestions,
-			correctAnswersCount,
+			slug: "",
+			correctAnswer: "",
+			userAnswer: "",
+			correct: "",
+			finished: "",
+			totalQuestions: "",
+			correctAnswersCount: "",
 		});
 	} else {
-		const correctAnswersCount = req.app.locals.correctAnswersCount;
-		// show wrong state
+		// todo: render "answer.njk", with all the correct properties
 		res.render("answer.njk", {
-			slug: flashcard.slug,
-			correctAnswer: answer,
-			userAnswer,
-			correct: false,
-			finished,
-			totalQuestions,
-			correctAnswersCount,
+			slug: "",
+			correctAnswer: "",
+			userAnswer: "",
+			correct: "",
+			finished: "",
+			totalQuestions: "",
+			correctAnswersCount: "",
 		});
 	}
 
-	// reset questionIndex
-	if (finished) {
-		res.app.locals.questionIndex = 0;
-		res.app.locals.correctAnswersCount = 0;
-	}
+	//todo: reset app's locals  if game is finished
 });
 
 export default router;
